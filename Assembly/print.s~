@@ -1,0 +1,65 @@
+.code32
+
+# Sezione delle variabili globali e costanti
+.section .data
+
+# Sezione delle istruzioni
+.section .text
+
+.global print_begin
+
+.type print, @function
+
+print_begin:
+
+    # Salvo il valore di ebp
+    pushl %ebp
+
+    # Muovo lo stack Pointer dove punta eb
+	movl %esp, %ebp
+
+    # Salvo eax
+	pushl %eax
+
+    # Azzero edx
+	xorl %edx, %edx
+
+count_char:
+
+    # Sommo a ecx il valore di edx e muovo quello a cui punta in al
+	movb (%ecx, %edx), %al
+
+    # Verifico che non sia 0
+	testb %al ,%al
+
+    # Se è zero salto alla stampa
+	jz finito_conteggio
+	
+    # Incremento edx
+	incl %edx
+
+    # Salto a count_char
+	jmp count_char
+
+count_char_end:
+
+    # Chiamo la system call write, in edx si trova già la lunghezza dell stringa e in ecx il puntatore alla stringa
+	movl $4, %eax
+	movl $1, %ebx
+	int $0x80
+	
+    # Ripristino il valore di eax
+	popl %eax
+
+    # Riporto esp nella sua posizione originaria
+	movl %ebp, %esp
+
+    # Ripristino il B.P.
+	popl %ebp
+
+    # Salto a print_end
+    jmp print_end
+
+print_end:
+
+    ret

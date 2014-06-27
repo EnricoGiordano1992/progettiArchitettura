@@ -1,0 +1,31 @@
+.code32
+
+# Sezione delle variabili globali
+.section .data
+
+msg_start:
+	.string "Starting...\n"
+
+msg_start_l:
+	.long . - msg_start
+
+# Sezione delle istruzioni
+.section .text
+
+.global _start
+
+_start:
+
+	leal msg_start, %ecx
+
+    //call print
+
+end:
+
+	int $0x80
+
+	movl $1, %eax
+
+	xorl %ebx, %ebx
+
+	int $0x80

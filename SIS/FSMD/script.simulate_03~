@@ -1,0 +1,58 @@
+# La ruota anteriore sinistra esegue 41 giri
+
+read_blif FSMD.blif
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
