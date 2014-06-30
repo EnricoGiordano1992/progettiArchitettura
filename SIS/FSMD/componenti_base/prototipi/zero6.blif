@@ -1,0 +1,14 @@
+.model ZERO6
+.outputs ZO5 ZO4 ZO3 ZO2 ZO1 ZO0
+
+.subckt ZERO ZERZO1=ZO5
+.subckt ZERO ZERZO1=ZO4
+.subckt ZERO ZERZO1=ZO3
+.subckt ZERO ZERZO1=ZO2
+.subckt ZERO ZERZO1=ZO1
+.subckt ZERO ZERZO1=ZO0
+
+.search zero.blif
+
+.end
+

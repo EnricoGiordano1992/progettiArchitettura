@@ -1,0 +1,15 @@
+.model REGISTRO6
+.inputs RI5 RI4 RI3 RI2 RI1 RI0
+.outputs RO5 RO4 RO3 RO2 RO1 RO0
+
+.subckt REGISTRO RI=RI5 RO=RO5
+.subckt REGISTRO RI=RI4 RO=RO4
+.subckt REGISTRO RI=RI3 RO=RO3
+.subckt REGISTRO RI=RI2 RO=RO2
+.subckt REGISTRO RI=RI1 RO=RO1
+.subckt REGISTRO RI=RI0 RO=RO0
+
+.search componenti_base/registro.blif
+
+.end
+

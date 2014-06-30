@@ -1,0 +1,64 @@
+echo esecuzione della ruota anteriore destra di 45 giri in 100 metri quindi no guasto perché non si considera la anteriore destra
+
+read_blif FSMD/FSMD_FINALE.blif
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1

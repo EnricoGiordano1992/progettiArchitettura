@@ -1,0 +1,9 @@
+.model OR3
+.inputs OI2 OI1 OI0
+.outputs OO0
+
+.names OI2 OI1 OI0 OO0
+000 0
+
+.end
+

@@ -1,7 +1,6 @@
 .model FSM_INIZIALE
 .inputs START RESET STEERING LIGHT
 .outputs RESTART
-.latch    [339] LatchOut_v4   1
 .start_kiss
 .i 4
 .o 1
@@ -22,12 +21,6 @@
 1000 S1 S0 0
 10-1 S1 S0 0
 .end_kiss
-.latch_order LatchOut_v4
-.code S0 1
-.code S1 0
-.names RESTART [339]
-0 1
-.names START RESET STEERING LIGHT LatchOut_v4 RESTART
-00--0 1
-1010- 1
+.latch_order
+.names RESTART
 .end

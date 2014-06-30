@@ -1,0 +1,26 @@
+.model SIGNAL
+.inputs R S7 S6 S5 S4 S3 S2 S1 S0
+.outputs OUT
+
+.subckt ZERO \
+	ZZERO1=CONST0
+
+.subckt EQ_ZERO \
+	UI1=R UI0=CONST0 \
+	UO0=R_OUT
+
+.subckt VELOX \
+	VI7=S7 VI6=S6 VI5=S5 VI4=S4 VI3=S3 VI2=S2 VI1=S1 VI0=S0 \
+	VO0=S_OUT
+
+.subckt AND \
+	AI1=R_OUT AI0=S_OUT \
+	AO0=OUT
+
+.search componenti_base/and.blif
+.search componenti_base/eq_zero.blif
+.search componenti_base/velox.blif
+.search componenti_base/zero.blif
+
+.end
+

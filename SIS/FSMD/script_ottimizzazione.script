@@ -1,0 +1,22 @@
+sweep
+eliminate 20
+fx
+full_simplify
+eliminate 1
+resub 
+resub 
+eliminate 2
+full_simplify
+fx
+fx
+fx
+sweep
+resub 
+resub 
+full_simplify
+eliminate 1
+eliminate 2
+full_simplify
+
+
+print_stats

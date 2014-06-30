@@ -1,0 +1,9 @@
+.model EQ_CINQUANTA
+.inputs UI5 UI4 UI3 UI2 UI1 UI0
+.outputs UO0
+
+.names UI5 UI4 UI3 UI2 UI1 UI0 UO0
+110010 1
+
+.end
+

@@ -1,0 +1,77 @@
+echo esecuzione della ruota anteriore destra di 33 giri quindi guasto
+
+read_blif FSMD/FSMD_FINALE.blif
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 0 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1

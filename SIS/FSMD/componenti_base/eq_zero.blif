@@ -1,0 +1,9 @@
+.model EQ_ZERO
+.inputs UI1 UI0
+.outputs UO0
+
+.names UI1 UI0 UO0
+00 1
+
+.end
+

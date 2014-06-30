@@ -1,9 +1,0 @@
-read_blif FSM_INIZIALE.blif
-state_minimize stamina
-state_assign jedi
-fx
-source script.rugged
-read_library synch.genlib
-map -m 0
-print_map_stats
-print_gate

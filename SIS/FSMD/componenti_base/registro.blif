@@ -1,0 +1,8 @@
+.model REGISTRO
+.inputs RI
+.outputs RO
+
+.latch RI RO re NIL 0
+
+.end
+

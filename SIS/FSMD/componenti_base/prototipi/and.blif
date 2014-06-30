@@ -1,0 +1,9 @@
+.model AND
+.inputs AI1 AI0
+.outputs AO0
+
+.names AI1 AI0 AO0
+11 1
+
+.end
+

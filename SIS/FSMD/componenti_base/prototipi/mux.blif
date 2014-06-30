@@ -1,0 +1,9 @@
+.model MUX
+.inputs MS MI1 MI0
+.outputs MO0
+
+.names MS MI1 MI0 MO0
+110 1
+
+.end
+

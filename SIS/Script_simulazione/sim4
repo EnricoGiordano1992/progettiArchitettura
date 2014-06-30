@@ -1,0 +1,58 @@
+echo esecuzione della ruota anteriore destra di 40 giri quindi guasto
+
+read_blif FSMD/FSMD_FINALE.blif
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 0
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 0
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 0
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 0 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 0 1
+simulate 0 0 0 0 0 1 1 1 1 1 1 1 1 1

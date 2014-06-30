@@ -1,0 +1,14 @@
+.model ZERO6
+.outputs ZO5 ZO4 ZO3 ZO2 ZO1 ZO0
+
+.subckt ZERO ZZERO1=ZO5
+.subckt ZERO ZZERO1=ZO4
+.subckt ZERO ZZERO1=ZO3
+.subckt ZERO ZZERO1=ZO2
+.subckt ZERO ZZERO1=ZO1
+.subckt ZERO ZZERO1=ZO0
+
+.search componenti_base/zero.blif
+
+.end
+

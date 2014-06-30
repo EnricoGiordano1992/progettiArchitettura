@@ -1,9 +1,0 @@
-.model MUX
-.inputs S I1 I0
-.outputs O0
-
-.names S I1 I0 O0
-110 1
-
-.end
-

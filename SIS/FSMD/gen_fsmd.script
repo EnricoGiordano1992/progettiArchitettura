@@ -1,0 +1,9 @@
+read_blif FSMD.blif
+
+source script_ottimizzazione.script
+
+read_library synch.genlib
+map -m 0
+print_map_stats
+print_gate
+write_blif FSMD_FINALE.blif

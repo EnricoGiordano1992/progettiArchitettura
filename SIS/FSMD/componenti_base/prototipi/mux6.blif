@@ -1,0 +1,23 @@
+.model MUX6
+.inputs MS MI5 MI4 MI3 MI2 MI1 MI0 MC5 MC4 MC3 MC2 MC1 MC0
+.outputs MO5 MO4 MO3 MO2 MO1 MO0
+
+.names MS MI5 MC5 MO5
+010 1
+
+.names MS MI4 MC4 MO4
+010 1
+
+.names MS MI3 MC3 MO3
+010 1
+
+.names MS MI2 MC2 MO2
+010 1
+
+.names MS MI1 MC1 MO1
+010 1
+
+.names MS MI0 MC0 MO0
+010 1
+
+.end
