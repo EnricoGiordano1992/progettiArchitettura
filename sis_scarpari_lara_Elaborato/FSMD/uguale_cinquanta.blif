@@ -1,9 +1,0 @@
-.model UGUALE_CINQUANTA
-.inputs I5 I4 I3 I2 I1 I0
-.outputs O0
-
-.names I5 I4 I3 I2 I1 I0 O0
-110010 1
-
-.end
-

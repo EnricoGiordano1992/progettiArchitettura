@@ -1,9 +1,0 @@
-.model OR3
-.inputs I2 I1 I0
-.outputs O0
-
-.names I2 I1 I0 O0
-000 0
-
-.end
-
