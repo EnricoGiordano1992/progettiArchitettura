@@ -1,23 +1,16 @@
 .code32
-# Sezione delle variabili non inizializzate
+
 .bss
-
-
 
 key:
     .string ""
 
-
-
-# Sezione delle variabili globali e costanti
 .section .data
 
-
-
-msg_input:
+string_input:
 	.string "> "
 
-key_l:
+key_length:
     .long 0
 
 counter:
@@ -43,731 +36,223 @@ back_home:
 
 
 
-# Funzione USER_MODE
-#
-# Esegue in modalità utente
-# il menù del cruscotto dell'automobile.
-#
+# esecuzione in modalità supervisor
 .type user_mode, @function
 
 
 
 user_mode:
 
-	# Salta all'etichetta press_key
-	# che legge un carattere inserito da tastiera.
-	#
-    jmp press_key
+get_key:
 
-press_key:
+	# mi preparo a scrivere la tringa string_input a video
+	leal string_input, %ecx
 
-	# Carica nel registro ECX
-	# l'indirizzo della stringa msg_input.
-	#
-	leal msg_input, %ecx
+	call printf
 
-	# Chiama la funzione print
-	# che stampa una stringa passata nel registro ECX.
-	call print
-
-    # Carica nel registro EAX il numero 3,
-	# cioè il codice della funzione read().
-	#
+	# eseguo una read() che legge al massimo 50 caratteri
 	movl $3, %eax
 
-	# Carica nel registro EBX il numero 0,
-	# identificatore della tastiera.
-	#
 	movl $0, %ebx
 
-	# Carica nel registro ECX il puntatore alla variabile
-	# in cui verrà salvata stringa letta.
-	#
 	leal key, %ecx
 
-	# Carica nel registro EDX il numero 30
-	# che indica il numero massimo di caratteri
-	# che possono essere letti.
-	#
-	movl $30, %edx
+	movl $50, %edx
 
-	# Chiama l'interrupt 0x80.
-	#
 	int $0x80
 
-	# Salva nella variabile key_l
-	# la lunghezza della stringa letta.
-	#
-    movl %eax, (key_l)
+	# salvo la lunghezza della stringa
+    	movl %eax, (key_length)
 
-	# Salta all'etichetta compare_key_l,
-	# che controlla la lunghezza della stringa letta.
-	#
-    jmp compare_key_l
+compare_key_length:
 
-compare_key_l:
+	# ho letto 2 caratteri?
+    	cmpb $2, %al
 
-	# Confronta il numero 2 con il contenuto
-	# di una parte del registro EAX,
-	# per verificare se la lunghezza della stringa
-	# letta è pari a 2.
-	#
-    cmpb $2, %al
+	# no ne ho letti meno, allora termino
+	jl user_mod_end
 
-	# Se la lunghezza della stringa è minore di 2,
-	# allora è stato inserito il carattere di new_line
-	# e salta all'etichetta user_mode_end,
-	# che termina l'esecuzione della modalità utente.
-	#
-	jl user_mode_end
-
-	# Se la stringa letta da tastiera è lunga 2,
-	# cioè comprende un carattere
-	# seguito dal carattere di new line,
-	# allora salta all'etichetta compare_key_D.
-	# Questa controlla se il carattere inserito
-	# risulta uguale alla lettera D.
-	#
-    je compare_key_D
+	# si, allora interpreto cio' che ho letto
+    	je goto_compare
 
 	# Altrimenti salta all'etichetta get_error
 	# per richiamare un messaggio di errore.
 	#
-    jmp get_error
+    	jmp get_error
 
 get_error:
 
-	# Chiama la funzione print_msg_error
+	# Chiama la funzione print_string_error
 	# per stampare un messaggio di errore.
 	#
-	call print_msg_error
+	call print_string_error
 
-	# Salta all'etichetta user_mode_end,
-	# che termina l'esecuzione della modalità utente.
+	# Salta all'etichetta user_mod_end,
+	# che termina l'esecuzione della modalità supervisor.
 	#
-	jmp user_mode_end
+	jmp user_mod_end
 
-compare_key_D:
 
-    # Controlla il primo parametro
-	# che si trova all'indirizzo contenuto in ECX
-    # e lo sposta in EAX.
-	#
-    movl (%ecx), %eax
+goto_compare:
+	call compare_key
 
-    # Confronta il codice ascii di "D"
-	# con il contenuto del registro AL.
-	#
+	# codice di ritorno errore ?
+	cmp $1, %edx
+	
+	# si, allora termino
+	je user_mod_end
+
+	movl %edx, %eax
+
+	# no, allora ho i vari casi
+	# D
 	cmpb $68, %al
-
-    # Se in AL è presente il codice ascii
-	# della lettera D,
-	# allora salta all'etichetta compare_new_line_down,
-	# che controlla se il carattere successivo
-	# della stringa letta sia uguale al carattere di new line.
-	#
-    je compare_new_line_down
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii della lettera D,
-	# allora salta all'etichetta compare_key_d,
-	# che controlla se il primo carattere
-	# della stringa letta sia uguale
-	# alla lettera d.
-	#
-	jmp compare_key_d
-
-compare_key_d:
-
-    # Confronta il codice ascii di "d"
-	# con il contenuto del registro AL.
-	#
+	je set_counter_down
+	
+	# d
 	cmpb $100, %al
+	je set_counter_down
 
-    # Se in AL è presente il codice ascii
-	# della lettera d,
-	# allora salta all'etichetta compare_new_line_down,
-	# che controlla se il carattere successivo
-	# della stringa letta sia uguale al carattere di new line.
-	#
-    je compare_new_line_down
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii della lettera d,
-	# allora salta all'etichetta compare_key_U,
-	# che controlla se il primo carattere
-	# della stringa letta sia uguale
-	# alla lettera U.
-	#
-	jmp compare_key_E
-
-compare_key_E:
-
-    # Confronta il codice ascii di "E"
-	# con il contenuto del registro AL.
-	#
+	# E
 	cmpb $69, %al
+	je set_counter_up
 
-    # Se in AL è presente il codice ascii
-	# della lettera U,
-	# allora salta all'etichetta compare_new_line_up,
-	# che controlla se il carattere successivo
-	# della stringa letta sia uguale al carattere di new line.
-	#
-    je compare_new_line_up
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii della lettera U,
-	# allora salta all'etichetta compare_key_u,
-	# che controlla se il primo carattere
-	# della stringa letta sia uguale
-	# alla lettera u.
-	#
-	jmp compare_key_e
-
-compare_key_e:
-
-    # Confronta il codice ascii di "e"
-	# con il contenuto del registro AL.
-	#
+	# e
 	cmpb $101, %al
+	je set_counter_up
 
-    # Se in AL è presente il codice ascii
-	# della lettera e,
-	# allora salta all'etichetta compare_new_line_up,
-	# che controlla se il carattere successivo
-	# della stringa letta sia uguale al carattere di new line.
-	#
-    je compare_new_line_up
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii della lettera u,
-	# allora salta all'etichetta compare_key_R,
-	# che controlla se il primo carattere
-	# della stringa letta sia uguale
-	# alla lettera R.
-	#
-	jmp compare_key_R
-
-compare_key_R:
-
-    # Confronta il codice ascii di "R"
-	# con il contenuto del registro AL.
-	#
-	cmpb $82, %al
-
-    # Se in AL è presente il codice ascii
-	# della lettera R,
-	# allora salta all'etichetta compare_new_line_right,
-	# che controlla se il carattere successivo
-	# della stringa letta sia uguale al carattere di new line.
-	#
-    je compare_new_line_right
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii della lettera R,
-	# allora salta all'etichetta compare_key_r,
-	# che controlla se il primo carattere
-	# della stringa letta sia uguale
-	# alla lettera r.
-	#
-	jmp compare_key_r
-
-compare_key_r:
-
-    # Confronta il codice ascii di "r"
-	# con il contenuto del registro AL.
-	#
-	cmpb $114, %al
-
-    # Se in AL è presente il codice ascii
-	# della lettera r,
-	# allora salta all'etichetta compare_new_line_right,
-	# che controlla se il carattere successivo
-	# della stringa letta sia uguale al carattere di new line.
-	#
-    je compare_new_line_right
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii della lettera r,
-	# allora salta all'etichetta press_key,
-	# che chiede di inserire nuovamente un carattere.
-	#
-	jmp press_key
-
-compare_new_line_down:
-
-	# Si giunge all'etichetta compare_new_line_down
-	# se è stata premuta la lettera D
-	# oppure la lettera d.
-
-    # Somma 1 all'indirizzo contenuto in ECX
-	# e lo sposta in EAX.
-	#
-	movl 1(%ecx), %eax
-
-    # Confronta il codice ascii del new line
-	# con il contenuto del registro AL.
-	#
-	cmpb $10, %al
-
-    # Se in AL è presente il codice ascii
-	# del carattere di new line,
-	# allora salta all'etichetta set_counter_down,
-	# che imposta correttamente il contatore
-	# della voce del menù da visualizzare
-	# secondo un ordine crescente da 1 a 6,
-	# ricominciando poi da 1 se il contatore vale 6.
-	#
-    je set_counter_down
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii del carattere di new line,
-	# allora salta all'etichetta user_mode_end,
-	# che termina l'esecuzione della modalità utente.
-	#
-	jmp user_mode_end
-
-compare_new_line_up:
-
-	# Si giunge all'etichetta compare_new_line_up
-	# se è stata premuta la lettera U
-	# oppure la lettera u.
-
-    # Somma 1 all'indirizzo contenuto in ECX
-	# e lo sposta in EAX.
-	#
-	movl 1(%ecx), %eax
-
-    # Confronta il codice ascii del new line
-	# con il contenuto del registro AL.
-	#
-	cmpb $10, %al
-
-    # Se in AL è presente il codice ascii
-	# del carattere di new line,
-	# allora salta all'etichetta set_counter_up,
-	# che imposta correttamente il contatore
-	# della voce del menù da visualizzare
-	# secondo un ordine decrescente da 6 a 1,
-	# ricominciando poi da 6 se il contatore vale 1.
-	#
-    je set_counter_up
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii del carattere di new line,
-	# allora salta all'etichetta user_mode_end,
-	# che termina l'esecuzione della modalità utente.
-	#
-	jmp user_mode_end
-
-compare_new_line_right:
-
-	# Si giunge all'etichetta compare_new_line_right
-	# se è stata premuta la lettera R
-	# oppure la lettera r.
-
-    # Somma 1 all'indirizzo contenuto in ECX
-	# e lo sposta in EAX.
-	#
-	movl 1(%ecx), %eax
-
-    # Confronta il codice ascii del new line
-	# con il contenuto del registro AL.
-	#
-	cmpb $10, %al
-
-    # Se in AL è presente il codice ascii
-	# del carattere di new line,
-	# allora salta all'etichetta choose_submenu,
-	# che in base al valore del contatore,
-	# il quale rappresenta la voce correntemente visualizzata,
-	# sceglie il corretto sottomenù da attivare.
-	#
-    je choose_submenu
-
-    # Altrimenti, se in AL non è presente
-	# il codice ascii del carattere di new line,
-	# allora salta all'etichetta user_mode_end,
-	# che termina l'esecuzione della modalità utente.
-	#
-	jmp user_mode_end
+	# r o R
+    	jmp choose_submenu
 
 set_counter_down:
 
-	# Si giunge all'etichetta set_counter_down
-	# se si deve incrementare il contatore
-	# per visualizzare correttamente
-	# la successiva voce del menù.
+	# si guarda in quale posizione si e' nello
+	# scorrimento del menu'
+    	movl counter, %edx
+	
+	# sono a posizione 0 ?
+    	cmpl $0, %edx
 
-    # Carica nel registro EDX il valore del contatore.
-    #
-    movl counter, %edx
+    	# si, allora vado alla posizione 1
+   	je set_counter_one
 
-    # Confronta il numero 0
-	# con il contenuto del registro EDX,
-	# nel quale è stato caricato precedentemente
-	# il valore corrente del contatore.
-	#
-    cmpl $0, %edx
+	# sono in posizione 6?
+    	cmpl $6, %edx
 
-    # Se il contatore vale 0,
-	# allora salta all'etichetta set_counter_one,
-	# che imposta a 1 il contatore.
-	#
-    je set_counter_one
+    	# si, allora vado alla posizione 1
+    	je set_counter_one
 
-    # Confronta il numero 6
-	# con il contenuto del registro EDX,
-	# nel quale è stato caricato precedentemente
-	# il valore corrente del contatore.
-	#
-    cmpl $6, %edx
-
-    # Se il contatore vale 6,
-	# allora salta all'etichetta set_counter_one,
-	# che imposta a 1 il contatore.
-	#
-    je set_counter_one
-
-	# Altrimenti salta all'etichetta increase_counter,
-	# che incrementa il valore del contatore
-	# per visualizzare la successiva voce del menù.
-	#
-    jmp increase_counter
+	# altrimenti incremento semplicemente
+    	jmp increase_counter
 
 set_counter_up:
 
-	# Si giunge all'etichetta set_counter_up
-	# se si deve decrementare il contatore
-	# per visualizzare correttamente
-	# la precedente voce del menù.
+	# si guarda in quale posizione si e' nello
+	# scorrimento del menu'
+    	movl counter, %edx
 
-	# Carica nel registro EDX il valore del contatore.
-    #
-    movl counter, %edx
+ 	# sono a posizione 0 ?
+   	cmpl $0, %edx
 
-	# Confronta il numero 0
-	# con il contenuto del registro EDX,
-	# nel quale è stato caricato precedentemente
-	# il valore corrente del contatore.
-	#
-    cmpl $0, %edx
+	# si, allora vado in posizione 6
+    	je set_counter_six
 
-    # Se il contatore vale 0,
-	# allora salta all'etichetta set_counter_six,
-	# che imposta a 6 il contatore.
-	#
-    je set_counter_six
+ 	# sono a posizione 1 ?
+    	cmpl $1, %edx
 
-	# Confronta il numero 1
-	# con il contenuto del registro EDX,
-	# nel quale è stato caricato precedentemente
-	# il valore corrente del contatore.
-	#
-    cmpl $1, %edx
+	# si, allora vado in posizione 6
+    	je set_counter_six
 
-    # Se il contatore vale 1,
-	# allora salta all'etichetta set_counter_six,
-	# che imposta a 6 il contatore.
-	#
-    je set_counter_six
-
-    # Altrimenti salta all'etichetta decrease_counter,
-	# che decrementa il valore del contatore
-	# per visualizzare la precedente voce del menù.
-	#
-    jmp decrease_counter
+	# altrimenti decremento semplicemente	
+    	jmp decrease_counter
 
 set_counter_one:
 
-    # Carica il valore 1 nel registro EDX.
-    #
-    movl $1, %edx
+	# preparo i registri per passare
+	# i parametri alla funzione menu
+    	movl $1, %edx
 
-    # Mette il contenuto del registro EDX
-    # nella variabile counter,
-    # che ora il contiene il numero della voce
-    # del menù da visualizzare.
-    #
-    movl %edx, (counter)
-
-    # Sposta il contenuto del registro EDX
-    # nel registro EAX.
-    #
-    movl %edx, %eax
-
-    # Mette nel registro EBX
-    # il valore della variabile supervisor.
-    #
-	movl supervisor, %ebx
-
-    # Mette nel registro ECX
-    # il valore della variabile lock_door.
-    #
-	movl lock_door, %ecx
-
-    # Mette nel registro EDX
-    # il valore della variabile back_home.
-    #
-	movl back_home, %edx
-
-    # Chiama la funzione print_menu_voice
-    # per stampare la voce del menù da visualizzare.
-    #
-    call print_menu_voice
-
-    # Salta all'etichetta press_key
-    # per leggere un nuovo carattere da tastiera.
-    #
-    jmp press_key
+	jmp prepare_to_call_menu
 
 set_counter_six:
 
-    # Carica il valore 6 nel registro EDX.
-    #
-    movl $6, %edx
+    	movl $6, %edx
 
-    # Mette il contenuto del registro EDX
-    # nella variabile counter,
-    # che ora il contiene il numero della voce
-    # del menù da visualizzare.
-    #
-    movl %edx, (counter)
-
-    # Sposta il contenuto del registro EDX
-    # nel registro EAX.
-    #
-    movl %edx, %eax
-
-    # Mette nel registro EBX
-    # il valore della variabile supervisor.
-    #
-	movl supervisor, %ebx
-
-    # Mette nel registro ECX
-    # il valore della variabile lock_door.
-    #
-	movl lock_door, %ecx
-
-    # Mette nel registro EDX
-    # il valore della variabile back_home.
-    #
-	movl back_home, %edx
-
-    # Chiama la funzione print_menu_voice
-    # per stampare la voce del menù da visualizzare.
-    #
-    call print_menu_voice
-
-    # Salta all'etichetta press_key
-    # per leggere un nuovo carattere da tastiera.
-    #
-    jmp press_key
+	jmp prepare_to_call_menu
 
 increase_counter:
 
-    # Somma il valore 1 al contenuto
-    # del registro EDX, il quale contiene
-    # il vecchio valore del contatore.
-    #
-    addl $1, %edx
+    	addl $1, %edx
 
-    # Mette il contenuto del registro EDX
-    # nella variabile counter,
-    # che ora il contiene il numero della voce
-    # del menù da visualizzare.
-    #
-    movl %edx, (counter)
-
-    # Sposta il contenuto del registro EDX
-    # nel registro EAX.
-    #
-    movl %edx, %eax
-
-    # Mette nel registro EBX
-    # il valore della variabile supervisor.
-    #
-	movl supervisor, %ebx
-
-    # Mette nel registro ECX
-    # il valore della variabile lock_door.
-    #
-	movl lock_door, %ecx
-
-    # Mette nel registro EDX
-    # il valore della variabile back_home.
-    #
-	movl back_home, %edx
-
-    # Chiama la funzione print_menu_voice
-    # per stampare la voce del menù da visualizzare.
-    #
-    call print_menu_voice
-
-    # Salta all'etichetta press_key
-    # per leggere un nuovo carattere da tastiera.
-    #
-    jmp press_key
+	jmp prepare_to_call_menu
 
 decrease_counter:
 
-    # Sottrae il valore 1 al contenuto
-    # del registro EDX, il quale contiene
-    # il vecchio valore del contatore.
-    #
-    subl $1, %edx
+    	subl $1, %edx
 
-    # Mette il contenuto del registro EDX
-    # nella variabile counter,
-    # che ora il contiene il numero della voce
-    # del menù da visualizzare.
-    #
-    movl %edx, (counter)
 
-    # Sposta il contenuto del registro EDX
-    # nel registro EAX.
-    #
-    movl %edx, %eax
+prepare_to_call_menu:
+	# preparo i registri per passare
+	# i parametri alla funzione menu
 
-    # Mette nel registro EBX
-    # il valore della variabile supervisor.
-    #
+    	movl %edx, (counter)
+
+    	movl %edx, %eax
+
 	movl supervisor, %ebx
 
-    # Mette nel registro ECX
-    # il valore della variabile lock_door.
-    #
 	movl lock_door, %ecx
 
-    # Mette nel registro EDX
-    # il valore della variabile back_home.
-    #
 	movl back_home, %edx
 
-    # Chiama la funzione print_menu_voice
-    # per stampare la voce del menù da visualizzare.
-    #
-    call print_menu_voice
+    	call menu
 
-    # Salta all'etichetta press_key
-    # per leggere un nuovo carattere da tastiera.
-    #
-    jmp press_key
+    	jmp get_key
+
 
 choose_submenu:
 
-    # Si giunge all'etichetta choose_submenu
-	# se in corrispondenza di una voce del menù
-    # è stata premuta la lettera R oppure la lettera r.
-    # Questo significa che deve essere selezionato
-    # il sottomenù corrispondente alla voce visualizzata.
+	# e' stata letta un carattere r
+    
+	movl counter, %eax
 
-    # Carica il valore del contatore
-    # nel registro EAX.
-    #
-    movl counter, %eax
+	# sono alla posizione 4?
+    	cmpl $4, %eax
 
-    # Confronta il valore 4
-    # con il contenuto del registro EAX.
-    #
-    cmpl $4, %eax
+	# si, allora vado nel sottomenu' lock_door
+    	je move_scelta_lockdoor
 
-    # Se nel contatore è presente il valore 4,
-    # allora salta all'etichetta move_menu_lock_door.
-    #
-    je move_menu_lock_door
+	# sono alla posizione 5?
+    	cmpl $5, %eax
 
-    # Confronta il valore 5
-    # con il contenuto del registro EAX.
-    #
-    cmpl $5, %eax
+	# si, allora vado nel sottomenu' back_home
+    	je move_scelta_backhome
 
-    # Se nel contatore è presente il valore 5,
-    # allora salta all'etichetta move_menu_back_home.
-    #
-    je move_menu_back_home
+    	jmp get_key
 
-    # Salta all'etichetta press_key
-    # per leggere un nuovo carattere da tastiera.
-    #
-    jmp press_key
+move_scelta_lockdoor:
 
-move_menu_lock_door:
+	# passo il valore alla funzione tramite il registro eax
+    	movl lock_door, %eax
 
-	# Carica nel registro EAX
-	# il valore della variabile lock_door,
-	# la quale vale 0 se il blocco automatico
-	# porte è impostato a OFF, altrimenti vale 1.
-	#
-    movl lock_door, %eax
+   	call scelta_lockdoor
 
-	# Chiama la funzione print_menu_lock_door,
-	# che stampa il valore corrente del blocco
-	# automatico porte e permette inoltre di
-	# cambiare l'impostazione.
-	#
-    call print_menu_lock_door
-
-	# Salva nella variabile lock_door
-	# il valore del registro EAX,
-	# salvando quindi la nuova impostazione
-	# del blocco automatico porte.
-	#
 	movl %eax, lock_door
 
-	# Salta all'etichetta press_key
-    # per leggere un nuovo carattere da tastiera.
-    #
-    jmp press_key
+    	jmp get_key
 
-move_menu_back_home:
+move_scelta_backhome:
 
-	# Carica nel registro EAX
-	# il valore della variabile back_home,
-	# la quale vale 0 se il back-home
-	# è impostato a OFF, altrimenti vale 1.
-	#
-    movl back_home, %eax
+	# passo il valore alla funzione tramite il registro eax
+    	movl back_home, %eax
 
-	# Chiama la funzione print_menu_back_home,
-	# che stampa il valore corrente del back-home
-	# e permette inoltre di cambiare l'impostazione.
-	#
-    call print_menu_back_home
+    	call scelta_backhome
 
-	# Salva nella variabile back_home
-	# il valore del registro EAX,
-	# salvando quindi la nuova impostazione
-	# del back-home.
-	#
 	movl %eax, back_home
 
-	# Salta all'etichetta press_key
-    # per leggere un nuovo carattere da tastiera.
-    #
-    jmp press_key
+    	jmp get_key
 
-move_menu_reset_tire_pressure:
 
-	# Carica nel registro EAX il numero 1,
-	# il quale indica alla funzione
-	# che occorre resettare la pressione
-	# delle gomme.
-	#
-	movl $1, %eax
-
-	# Chiama la funzione print_menu_reset_tire_pressure,
-	# stampa una stringa indicando che
-	# la pressione delle gomme è stata resettata.
-	#
-    call print_menu_reset_tire_pressure
-
-	# Salta all'etichetta press_key
-    # per leggere un nuovo carattere da tastiera.
-    #
-    jmp press_key
-
-user_mode_end:
+user_mod_end:
 
     ret

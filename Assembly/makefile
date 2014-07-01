@@ -7,21 +7,22 @@ LDFLAGS= -m elf_i386
 
 # Sources
 
-SRCS:= sources/main.s \
-       sources/user_mode.s \
-	   sources/supervisor_mode.s \
-	   sources/print_msg_error.s \
-       sources/print_menu_voice.s \
-       sources/print_menu_lock_door.s \
-       sources/print_menu_back_home.s \
-	   sources/print_menu_direction_arrows.s \
-	   sources/print_menu_reset_tire_pressure.s \
-       sources/itoa.s \
-       sources/atoi.s \
-	   sources/atoi_read.s \
-	   sources/print.s \
-       sources/new_line.s \
-       sources/end.s
+SRCS:= 	sources/main.s \
+       	sources/user_mode.s \
+	sources/supervisor_mode.s \
+	sources/print_string_error.s \
+       	sources/menu.s \
+       	sources/scelta_lockdoor.s \
+       	sources/scelta_backhome.s \
+	sources/scelta_frecce_direzione.s \
+	sources/reset_pressione.s \
+       	sources/itoa.s \
+       	sources/atoi.s \
+	sources/atoi_read.s \
+	sources/printf.s \
+       	sources/new_l.s \
+       	sources/end.s \
+ 	sources/compare_key.s
 
 # Objects
 
@@ -45,27 +46,27 @@ supervisor_mode.o: sources/supervisor_mode.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-print_msg_error.o: sources/print_msg_error.s
+print_string_error.o: sources/print_string_error.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-print_menu_voice.o: sources/print_menu_voice.s
+menu.o: sources/menu.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-print_menu_lock_door.o: sources/print_menu_lock_door.s
+scelta_lockdoor.o: sources/scelta_lockdoor.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-print_menu_back_home.o: sources/print_menu_back_home.s
+scelta_backhome.o: sources/scelta_backhome.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-print_menu_direction_arrows.o: sources/print_menu_direction_arrows.s
+scelta_frecce_direzione.o: sources/scelta_frecce_direzione.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-print_menu_reset_tire_pressure.o: sources/print_menu_reset_tire_pressure.s
+reset_pressione.o: sources/reset_pressione.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
@@ -81,11 +82,11 @@ atoi_read.o: sources/atoi_read.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-print.o: sources/print.s
+printf.o: sources/printf.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-new_line.o: sources/new_line.s
+new_l.o: sources/new_l.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
@@ -93,22 +94,29 @@ end.o: sources/end.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-run.x: \
+compare_key.o: sources/compare_key.s
+	@echo $@
+	$(AS) $(FLAGS) $^ -o $@
+
+
+run.x: 	\
 	main.o \
-    user_mode.o \
+    	user_mode.o \
 	supervisor_mode.o \
-	print_msg_error.o \
-    print_menu_voice.o \
-    print_menu_lock_door.o \
-    print_menu_back_home.o \
-	print_menu_direction_arrows.o \
-	print_menu_reset_tire_pressure.o \
-    itoa.o \
-    atoi.o \
+	print_string_error.o \
+    	menu.o \
+    	scelta_lockdoor.o \
+    	scelta_backhome.o \
+	scelta_frecce_direzione.o \
+	reset_pressione.o \
+    	itoa.o \
+    	atoi.o \
 	atoi_read.o \
-	print.o \
-    new_line.o \
-    end.o
+	printf.o \
+    	new_l.o \
+    	end.o \
+    	compare_key.o \
+
 	@echo LINKED: $@
 	$(LD) $(LDFLAGS) $^ -o $@
 
