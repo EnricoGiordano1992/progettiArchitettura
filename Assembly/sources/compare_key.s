@@ -18,40 +18,12 @@ string_error:
 string_input:
 	.string "     > "
 
-
-
 key_to_long:
     .long 0
 
-
-
-# BACK HOME
-
-string_backhome_actual_on:
-	.string "          Impostazione corrente: Back-home: ON\n"
-
-string_backhome_actual_off:
-	.string "          Impostazione corrente: Back-home: OFF\n"
-
-string_backhome_on:
-	.string "          SET Back-home: ON\n"
-
-string_backhome_off:
-	.string "          SET Back-home: OFF\n"
-
-backhome:
-    .long 0
-
-
-
-# Sezione delle istruzioni
 .section .text
 
-
-
 .global compare_key
-
-
 
 # stampa comprende il carattere letto (D,d,E,e,R,r)
 .type compare_key, @function

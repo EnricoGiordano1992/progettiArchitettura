@@ -16,7 +16,7 @@ key_length:
 counter:
     .long 0
 
-supervisor:
+superuser:
 	.long 0
 
 lock_door:
@@ -36,7 +36,7 @@ back_home:
 
 
 
-# esecuzione in modalità supervisor
+# esecuzione in modalità superuser
 .type user_mode, @function
 
 
@@ -88,7 +88,7 @@ get_error:
 	call print_string_error
 
 	# Salta all'etichetta user_mod_end,
-	# che termina l'esecuzione della modalità supervisor.
+	# che termina l'esecuzione della modalità superuser.
 	#
 	jmp user_mod_end
 
@@ -199,7 +199,7 @@ prepare_to_call_menu:
 
     	movl %edx, %eax
 
-	movl supervisor, %ebx
+	movl superuser, %ebx
 
 	movl lock_door, %ecx
 

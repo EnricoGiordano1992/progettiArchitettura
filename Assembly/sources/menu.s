@@ -35,14 +35,14 @@ string_back_home_off:
 back_home:
     .long 0
 
-string_check_oil:
+string_olio:
 	.string "     6. Check olio\n"
 
-string_direction_arrows:
+string_frecce_direzione:
 	.string "     7. Frecce direzione\n"
 
 
-string_reset_tire_pressure:
+string_reset_pressione:
 	.string "     8. Reset pressione gomme\n"
 
 
@@ -101,17 +101,17 @@ menu:
     	cmpl $6, %eax
 
 	# la sesta
-    	je print_string_check_oil
+    	je print_string_olio
 
 	cmpl $7, %eax
 
 	# la settima
-    	je print_string_direction_arrows
+    	je print_string_frecce_direzione
 
 	cmpl $8, %eax
 
 	# l'ottava
-    	je print_string_reset_tire_pressure
+    	je print_string_reset_pressione
 
 print_string_setting:
 
@@ -225,25 +225,25 @@ print_string_back_home_on:
 
     	jmp menu_end
 
-print_string_check_oil:
+print_string_olio:
 
-	leal string_check_oil, %ecx
-
-    	call printf
-
-    	jmp menu_end
-
-print_string_direction_arrows:
-
-	leal string_direction_arrows, %ecx
+	leal string_olio, %ecx
 
     	call printf
 
     	jmp menu_end
 
-print_string_reset_tire_pressure:
+print_string_frecce_direzione:
 
-	leal string_reset_tire_pressure, %ecx
+	leal string_frecce_direzione, %ecx
+
+    	call printf
+
+    	jmp menu_end
+
+print_string_reset_pressione:
+
+	leal string_reset_pressione, %ecx
 
     	call printf
 

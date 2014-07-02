@@ -9,7 +9,7 @@ LDFLAGS= -m elf_i386
 
 SRCS:= 	sources/main.s \
        	sources/user_mode.s \
-	sources/supervisor_mode.s \
+	sources/superuser_mode.s \
 	sources/print_string_error.s \
        	sources/menu.s \
        	sources/scelta_lockdoor.s \
@@ -42,7 +42,7 @@ user_mode.o: sources/user_mode.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
-supervisor_mode.o: sources/supervisor_mode.s
+superuser_mode.o: sources/superuser_mode.s
 	@echo $@
 	$(AS) $(FLAGS) $^ -o $@
 
@@ -102,7 +102,7 @@ compare_key.o: sources/compare_key.s
 run.x: 	\
 	main.o \
     	user_mode.o \
-	supervisor_mode.o \
+	superuser_mode.o \
 	print_string_error.o \
     	menu.o \
     	scelta_lockdoor.o \

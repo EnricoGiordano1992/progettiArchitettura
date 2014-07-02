@@ -16,7 +16,7 @@ key_length:
 counter:
     .long 0
 
-supervisor:
+superuser:
 	.long 1
 
 lock_door:
@@ -35,16 +35,16 @@ num_lights:
 
 
 
-.global supervisor_mode
+.global superuser_mode
 
 
 
-# esecuzione in modalità supervisor
-.type supervisor_mode, @function
+# esecuzione in modalità superuser
+.type superuser_mode, @function
 
 
 
-supervisor_mode:
+superuser_mode:
 
 get_key:
 
@@ -73,7 +73,7 @@ compare_key_length:
     	cmpb $2, %al
 
 	# no ne ho letti meno, allora termino
-	jl supervisor_mode_end
+	jl superuser_mode_end
 
 	# si, allora interpreto cio' che ho letto
     	je goto_compare
@@ -90,10 +90,10 @@ get_error:
 	#
 	call print_string_error
 
-	# Salta all'etichetta supervisor_mode_end,
-	# che termina l'esecuzione della modalità supervisor.
+	# Salta all'etichetta superuser_mode_end,
+	# che termina l'esecuzione della modalità superuser.
 	#
-	jmp supervisor_mode_end
+	jmp superuser_mode_end
 
 
 goto_compare:
@@ -103,7 +103,7 @@ goto_compare:
 	cmp $1, %edx
 	
 	# si, allora termino
-	je supervisor_mode_end
+	je superuser_mode_end
 
 	movl %edx, %eax
 
@@ -202,7 +202,7 @@ prepare_to_call_menu:
 
     	movl %edx, %eax
 
-	movl supervisor, %ebx
+	movl superuser, %ebx
 
 	movl lock_door, %ecx
 
@@ -287,6 +287,6 @@ move_reset_pressione:
 
     	jmp get_key
 
-supervisor_mode_end:
+superuser_mode_end:
 
     ret

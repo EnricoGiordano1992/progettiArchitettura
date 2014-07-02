@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.3.26)  2 JUL 2014 09:24
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.3.26)  2 JUL 2014 17:53
 entering extended mode
  %&-line parsing enabled.
 **Relazione.tex
@@ -460,9 +460,9 @@ File: Relazione-frn.pdf Graphic file (type pdf)
 
 ] (./Relazione.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 6.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 6.
+(Font)              <5> on input line 4.
 )
 \tf@toc=\write4
 \openout4 = `Relazione.toc'.
@@ -475,87 +475,53 @@ Capitolo 1.
 
 ]
 Capitolo 2.
-<schemi/fsmd.png, id=51, 446.6286pt x 231.9867pt>
-File: schemi/fsmd.png Graphic file (type png)
- <use schemi/fsmd.png>
-[7 <./schemi/fsmd.png>] [8
-
-]
-Capitolo 3.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 67.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 55.
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
+ [7] [8] [9] [10
 
-<schemi/fsm.png, id=61, 683.55376pt x 510.90875pt>
-File: schemi/fsm.png Graphic file (type png)
- <use schemi/fsm.png>
-[9] [10 <./schemi/fsm.png>]
-Capitolo 4.
-<schemi/datapath.png, id=71, 757.83125pt x 405.515pt>
-File: schemi/datapath.png Graphic file (type png)
-
-<use schemi/datapath.png>
-Overfull \hbox (10.03526pt too wide) in paragraph at lines 126--127
-\OT1/cmr/m/n/10 Il DAT-A-P-ATH ^^Re cos-ti-tu-ito dai seguen-ti file con es-ten
--sione .blif: velox.blif sig-nal.blif ruo-ta[]principale.blif
+]
+Capitolo 3.
+[11] [12]
+Overfull \hbox (18.01404pt too wide) in paragraph at lines 311--312
+\OT1/cmr/m/n/10 Le fun-zioni di scelta (\OT1/cmr/m/it/10 scelta[]backhome scelt
+a[]frecce[]direzione \OT1/cmr/m/n/10 e \OT1/cmr/m/it/10 scelta[]lockdoor\OT1/cm
+r/m/n/10 ) e di re-set (\OT1/cmr/m/it/10 re-set[]pressione\OT1/cmr/m/n/10 ),
  []
 
-[11
+[13] [14]
+Capitolo 4.
+[15
 
- <./schemi/datapath.png>] <schemi/velox.png, id=76, 369.38pt x 210.7875pt>
-File: schemi/velox.png Graphic file (type png)
-
-<use schemi/velox.png> <schemi/signal.png, id=77, 697.60625pt x 248.93pt>
-File: schemi/signal.png Graphic file (type png)
-
-<use schemi/signal.png> [12 <./schemi/velox.png (PNG copy)> <./schemi/signal.pn
-g>] <schemi/ruota_principale.png, id=82, 659.46375pt x 651.43375pt>
-File: schemi/ruota_principale.png Graphic file (type png)
-
-<use schemi/ruota_principale.png> [13 <./schemi/ruota_principale.png (PNG copy)
->] <schemi/ruota.png, id=87, 761.84625pt x 592.2125pt>
-File: schemi/ruota.png Graphic file (type png)
- <use schemi/ruota.png>
-<schemi/diff_or3.png, id=88, 537.00626pt x 708.6475pt>
-File: schemi/diff_or3.png Graphic file (type png)
-
-<use schemi/diff_or3.png> [14 <./schemi/ruota.png (PNG copy)>] [15 <./schemi/di
-ff_or3.png>] [16
+] [16] [17] [18
 
 ]
 Capitolo 5.
-[17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19]
-[20] [21] (./Relazione.aux) ) 
+[19] (./Relazione.aux) ) 
 Here is how much of TeX's memory you used:
- 3959 strings out of 495061
- 52328 string characters out of 1182621
- 175737 words of memory out of 3000000
- 7088 multiletter control sequences out of 15000+50000
- 7535 words of font info for 27 fonts, out of 3000000 for 9000
+ 3918 strings out of 495061
+ 51506 string characters out of 1182621
+ 133737 words of memory out of 3000000
+ 7056 multiletter control sequences out of 15000+50000
+ 6930 words of font info for 25 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 32i,8n,32p,1865b,1650s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx
-12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmsl10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Relazione.pdf (21 pages, 311886 bytes).
+ 32i,8n,32p,588b,1650s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmsl10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on Relazione.pdf (19 pages, 184347 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
+ 124 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

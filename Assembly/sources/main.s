@@ -11,8 +11,8 @@ string_start:
 string_user_mode:
 	.string "USER MODE: ON\n"
 
-string_supervisor_mode:
-	.string "SUPERVISOR MODE: ON\n"
+string_superuser_mode:
+	.string "superuser MODE: ON\n"
 
 string_error:
 	.string "ERROR WRONG PASSWORD\n"
@@ -30,7 +30,6 @@ _start:
 
 	# Carica nel registro ecx l'indirizzo
 	# della stringa string_start
-	#
 	leal string_start, %ecx
 
 	# Chiama la funzione print (stampa la stringa)
@@ -62,9 +61,9 @@ is_user_mode:
 
 	
 	# no, allora ho inserito la password
-	jmp is_supervisor_mode
+	jmp is_superuser_mode
 
-is_supervisor_mode:
+is_superuser_mode:
 
     
     	# incremento il puntatore alla cima dello
@@ -90,16 +89,16 @@ _user_mode:
 	# salto alla terminazione del programma
 	jmp _end
 
-_supervisor_mode:
+_superuser_mode:
 
 	# carico l'indirizzo della stringa
-	leal string_supervisor_mode, %ecx
+	leal string_superuser_mode, %ecx
 
 	# Chiama la funzione per stampare la stringa
 	call printf
 
-	# avvio il menu' in modalita' supervisor
-	call supervisor_mode
+	# avvio il menu' in modalita' superuser
+	call superuser_mode
 
 	# salto alla terminazione del programma
 	jmp _end
@@ -125,8 +124,8 @@ get_password:
 	# la stringa ottenuta è uguale alla password?
 	cmpl $2244, %eax
 
-	# si, allora attivo la modalita' supervisor
-	je _supervisor_mode
+	# si, allora attivo la modalita' superuser
+	je _superuser_mode
 
     # Stampa il carattere \n
 	call new_l

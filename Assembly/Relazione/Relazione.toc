@@ -1,0 +1,12 @@
+\select@language {italian}
+\contentsline {chapter}{\numberline {1}Introduzione}{5}
+\contentsline {chapter}{\numberline {2}Funzionamento generale}{7}
+\contentsline {section}{\numberline {2.1}Sottomen\IeC {\`u}}{8}
+\contentsline {chapter}{\numberline {3}Componenti Software}{11}
+\contentsline {section}{\numberline {3.1}main}{11}
+\contentsline {section}{\numberline {3.2}user\_mode e superuser\_mode}{12}
+\contentsline {section}{\numberline {3.3}menu}{13}
+\contentsline {section}{\numberline {3.4}scelta e reset}{13}
+\contentsline {chapter}{\numberline {4}Funzioni generiche}{15}
+\contentsline {section}{\numberline {4.1}Pseudo codice di tutto il programma}{16}
+\contentsline {chapter}{\numberline {5}Scelte progettuali}{19}
