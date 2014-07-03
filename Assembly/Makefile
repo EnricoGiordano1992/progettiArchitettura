@@ -1,9 +1,9 @@
 # Configuring
 
-FLAGS= --32 --gstabs+
+FLAGS= --32 --gstabs
 AS= as
 LD= ld
-LDFLAGS= -m elf_i386
+LDFLAGS= #-m elf_i386
 
 # Sources
 

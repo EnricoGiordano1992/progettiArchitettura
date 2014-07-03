@@ -19,6 +19,7 @@ car:
 		      # in un numero che viene restituito nel registro eax
 atoi_read:   
 
+  movl $0, car
   pushl %ebx          # salvo il valore corrente di ebx sullo stack
   pushl %ecx          # salvo il valore corrente di ecx sullo stack
   pushl %edx          # salvo il valore corrente di edx sullo stack
@@ -36,7 +37,8 @@ inizio:
   mov   $1, %edx      # comanda di leggere un solo carattere
   int   $0x80         # chiamata di sistema
 
-  cmp   $10, car      # vedo se e' stato letto il carattere '\n'
+  mov car, %eax
+  cmpl   $10, %eax      # vedo se e' stato letto il carattere '\n'
   je    fine
 	
   subb  $48, car      # converte il codice ASCII della cifra nel numero corrisp.
