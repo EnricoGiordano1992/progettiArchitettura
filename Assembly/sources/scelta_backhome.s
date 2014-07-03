@@ -22,8 +22,6 @@ key_length:
 
 
 
-# BACK HOME
-
 string_backhome_actual_on:
 	.string "          Impostazione corrente: Back-home: ON\n"
 
