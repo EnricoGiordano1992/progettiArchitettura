@@ -1,7 +1,2 @@
-progettiArchitettura
+progetti Architettura degli Elaboratori UniVR
 ====================
-
-mancano:
-- relazioni
-- mod di commenti
-- mod di variabili SIS
